@@ -1,194 +1,153 @@
-
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>副業實戰講座 | Work From Home 專場</title>
-
-  <!-- ✅ Open Graph for social preview -->
-  <meta property="og:title" content="副業實戰講座｜遠端工作者專場">
-  <meta property="og:description" content="打造你的斜槓人生！專為在家工作者設計的線上講座">
-  <meta property="og:image" content="https://source.unsplash.com/1200x630/?workspace,remote">
-  <meta property="og:url" content="https://drexler2k25may.github.io/remote-talk-event/">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <style>
-    body {
-      font-family: 'Helvetica Neue', sans-serif;
-      margin: 0;
-      color: #333;
-      background: #f4f6fa;
-    }
-    header {
-      background: url('https://source.unsplash.com/1600x600/?coworking,home-office') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 100px 20px 80px;
-    }
-    header h1 {
-      color: #00bcd4;
-      font-size: 2.8em;
-      margin-bottom: 10px;
-    }
-    header p {
-      color: #e0f7fa;
-      font-size: 1.2em;
-    }
-    .section {
-      padding: 50px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .section h2 {
-      font-size: 1.8em;
-      margin-bottom: 20px;
-      color: #0b66c3;
-    }
-    .speakers {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .speaker {
-      flex: 1;
-      min-width: 240px;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .speaker img {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-    }
-    .agenda {
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .agenda-item {
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
-    }
-    .agenda-item:last-child {
-      border-bottom: none;
-    }
-    .cta {
-      text-align: center;
-      margin: 50px 0 20px;
-    }
-    .cta a {
-      background: #0b66c3;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    .cta a:hover {
-      background: #094e9e;
-    }
-    .share {
-      text-align: center;
-      margin: 10px 0 50px;
-    }
-    .share a {
-      margin: 0 10px;
-      display: inline-block;
-    }
-    .share img {
-      width: 32px;
-      height: 32px;
-      vertical-align: middle;
-    }
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-    @media (max-width: 600px) {
-      header h1 {
-      color: #00bcd4;
-        font-size: 2em;
-      }
-      .speakers {
-        flex-direction: column;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>副業資源查詢工具</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-
-<header>
-  <h1>副業實戰講座：遠端工作者專場</h1>
-  <p>打造你的斜槓人生！專為在家工作者設計的線上講座</p>
-</header>
-
-<section class="section">
-  <h2>🎯 活動介紹</h2>
-  <p>這是一場專為居家辦公、遠端上班族打造的副業線上講座，邀請來自設計、寫作、技術與自由接案界的講者，分享真實經驗、實戰技巧與斜槓心法。無論你是剛開始探索，或已經開始經營副業，都能在這場活動中獲得啟發！</p>
-</section>
-
-<section class="section">
-  <h2>🎤 講者陣容</h2>
-  <div class="speakers">
-    <div class="speaker">
-      <img src="https://source.unsplash.com/100x100/?person" alt="講者A">
-      <h3>Emily 陳</h3>
-      <p>接案設計師｜經營 IG 接案超過百位客戶</p>
+<body class="bg-gray-50 text-gray-800">
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4">💼 副業 / 遠端工作資源查詢</h1>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
+      <input type="text" id="searchInput" placeholder="🔍 輸入關鍵字搜尋..." class="w-full sm:w-1/2 px-4 py-2 border rounded-md shadow-sm">
+      <select id="tagFilter" class="w-full sm:w-1/3 px-4 py-2 border rounded-md shadow-sm">
+        <option value="">📂 全部分類</option>
+        <option value="平台">平台</option>
+        <option value="工具">工具</option>
+        <option value="課程">課程</option>
+        <option value="活動">活動</option>
+      </select>
     </div>
-    <div class="speaker">
-      <img src="https://source.unsplash.com/100x100/?man" alt="講者B">
-      <h3>Leo 張</h3>
-      <p>工程師 & 副業平台創辦人｜月收破 6 位數</p>
-    </div>
-    <div class="speaker">
-      <img src="https://source.unsplash.com/100x100/?woman" alt="講者C">
-      <h3>Sophia 林</h3>
-      <p>自由寫手｜出版電子書、打造個人品牌</p>
+
+    <div id="resourceList" class="grid gap-4"></div>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-lg max-w-lg w-full p-6 relative">
+      <button id="modalClose" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800">✖</button>
+      <img id="modalImage" src="" class="w-24 h-24 object-cover rounded mb-4" alt="">
+      <h2 id="modalTitle" class="text-2xl font-bold mb-2"></h2>
+      <p id="modalCategory" class="text-sm text-blue-700 mb-2"></p>
+      <p id="modalDescription" class="text-sm mb-4"></p>
+      <a id="modalLink" href="#" target="_blank" class="inline-block text-blue-600 hover:underline">🔗 前往網站</a>
     </div>
   </div>
-</section>
 
-<section class="section">
-  <h2>📅 活動流程</h2>
-  <div class="agenda">
-    <div class="agenda-item">
-      <strong>19:00 - 19:10</strong>｜開場介紹
-    </div>
-    <div class="agenda-item">
-      <strong>19:10 - 20:00</strong>｜講者分享：斜槓接案心法
-    </div>
-    <div class="agenda-item">
-      <strong>20:00 - 20:30</strong>｜自由 Q&A 與交流
-    </div>
-  </div>
-</section>
+  <script>
+    const resources = [
+      {
+        title: "Yourator 遠端職缺平台",
+        category: "平台",
+        description: "台灣設計與數位職涯為主的人才媒合平台，支援遠端工作職缺搜尋。",
+        url: "https://www.yourator.co/",
+        tag: "平台",
+        image: "https://yourator.co/favicon.ico"
+      },
+      {
+        title: "Fiverr 自由接案平台",
+        category: "平台",
+        description: "國際級自由工作者平台，提供設計、文案、翻譯、技術類別等多樣工作。",
+        url: "https://www.fiverr.com",
+        tag: "平台",
+        image: "https://fiverr-res.cloudinary.com/npm-assets/layout-server/favicon.5d9a0a7.png"
+      },
+      {
+        title: "Notion",
+        category: "工具",
+        description: "協作筆記 + 專案管理工具，適合接案者整理任務與交付項目。",
+        url: "https://www.notion.so",
+        tag: "工具",
+        image: "https://www.notion.so/images/favicon.ico"
+      },
+      {
+        title: "Skillshare 課程平台",
+        category: "課程",
+        description: "提供各類設計、攝影、行銷技能的線上課程資源。",
+        url: "https://www.skillshare.com",
+        tag: "課程",
+        image: "https://static.skillshare.com/favicon.ico"
+      },
+      {
+        title: "斜槓人生講座：遠端接案篇",
+        category: "活動",
+        description: "線上舉辦的免費副業講座，分享遠端接案與平台經驗。",
+        url: "https://example.com/talk",
+        tag: "活動",
+        image: "https://source.unsplash.com/100x100/?webinar"
+      }
+    ];
 
-<section class="cta">
-  <a href="https://forms.gle/your-form-link" target="_blank">📩 立即報名（免費參加）</a>
-</section>
+    const searchInput = document.getElementById('searchInput');
+    const tagFilter = document.getElementById('tagFilter');
+    const resourceList = document.getElementById('resourceList');
 
-<section class="share">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://drexler2k25may.github.io/remote-talk-event/" target="_blank" title="分享到 Facebook">
-    <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" />
-  </a>
-  <a href="https://social-plugins.line.me/lineit/share?url=https://drexler2k25may.github.io/remote-talk-event/" target="_blank" title="分享到 LINE">
-    <img src="https://cdn-icons-png.flaticon.com/512/145/145813.png" alt="LINE" />
-  </a>
-</section>
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modalClose');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalLink = document.getElementById('modalLink');
 
-<footer>
-  副業實戰講座 © 2025｜聯絡信箱：your@email.com
-</footer>
+    modalClose.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.classList.add('hidden');
+    });
 
+    function showModal(item) {
+      modalImage.src = item.image;
+      modalTitle.textContent = item.title;
+      modalCategory.textContent = `📂 類別：${item.category}｜🏷 標籤：${item.tag}`;
+      modalDescription.textContent = item.description;
+      modalLink.href = item.url;
+      modal.classList.remove('hidden');
+    }
+
+    function renderList() {
+      const keyword = searchInput.value.toLowerCase();
+      const selectedTag = tagFilter.value;
+      resourceList.innerHTML = '';
+
+      const filtered = resources.filter(item => {
+        return (
+          (!selectedTag || item.tag === selectedTag) &&
+          (item.title.toLowerCase().includes(keyword) ||
+           item.description.toLowerCase().includes(keyword))
+        );
+      });
+
+      if (filtered.length === 0) {
+        resourceList.innerHTML = '<p class="text-gray-500">查無資料</p>';
+        return;
+      }
+
+      filtered.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-lg shadow-sm p-4 hover:shadow-md transition flex flex-col sm:flex-row gap-4 cursor-pointer';
+        card.onclick = () => showModal(item);
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" class="w-20 h-20 rounded-md object-cover">
+          <div class="flex-1">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold text-blue-700">${item.title}</h3>
+              <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">${item.tag}</span>
+            </div>
+            <p class="text-sm text-gray-600 my-1">📂 類別：${item.category}</p>
+            <p class="mb-2 text-sm line-clamp-2">${item.description}</p>
+            <div class="flex items-center gap-4">
+              <span class="text-sm text-gray-400">點擊查看更多</span>
+            </div>
+          </div>
+        `;
+        resourceList.appendChild(card);
+      });
+    }
+
+    searchInput.addEventListener('input', renderList);
+    tagFilter.addEventListener('change', renderList);
+    window.onload = renderList;
+  </script>
 </body>
 </html>
